@@ -1,0 +1,37 @@
+artifacts_root: artifacts
+
+data_ingestion: 
+  root_dir: artifacts/data_ingestion
+  source_url: https://drive.google.com/uc?id=1W2Oa974yCD9TFVM7pLP19OhBIrNbje98&export=download
+  local_data_file: artifacts/data_ingestion/dataset.zip
+  unzip_dir: artifacts/data_ingestion
+
+prepare_dataset:
+  root_dir: artifacts/prepare_dataset
+  dataset_name: 2024-02 Machine Learning Engineer
+  environment_data: artifacts/data_ingestion/2024-02 Machine Learning Engineer/environmental_variables_data.csv
+  historical_data: artifacts/data_ingestion/2024-02 Machine Learning Engineer/historical_cooking_data.csv
+  feedback_data: artifacts/data_ingestion/2024-02 Machine Learning Engineer/user_feedback_data.csv
+  train_eval_data: artifacts/prepare_dataset/train_eval_data.csv
+  test_data: artifacts/prepare_dataset/test_data.csv
+  train_eval_dataset: artifacts/prepare_dataset/train_eval_dataset.pth
+  test_dataset: artifacts/prepare_dataset/test_dataset.pth
+
+prepare_model:
+  root_dir: artifacts/prepare_model
+  feature_size: 6
+  target_size: 2
+  base_model_path: artifacts/prepare_model/base_model.pth
+
+model_training:
+    root_dir: artifacts/model_training
+    train_eval_dataset: artifacts/prepare_dataset/train_eval_dataset.pth
+    base_model_path: artifacts/prepare_model/base_model.pth
+    updated_model_path: artifacts/model_training/updated_model.pth
+
+
+model_evaluation:
+    root_dir: artifacts/model_evaluation
+    updated_model_path: artifacts/model_training/updated_model.pth
+    test_dataset: artifacts/prepare_dataset/test_dataset.pth
+    model_performance_report: artifacts/model_evaluation/model_performance_report.json

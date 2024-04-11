@@ -1,0 +1,6 @@
+# model training
+batch_size : 64
+epochs: 10
+
+# model inference
+features: {"distinct_ingredients": 100, "humidity" : 61.032, "temperature": 26.458, "taste_rating": 5, "texture_feedback": 2.0, "user_satisfaction_rating": 5.0}
